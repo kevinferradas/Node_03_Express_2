@@ -1,14 +1,24 @@
+// Importa el módulo 'path' de Node.js para trabajar con rutas de archivos y directorios
 const path = require("node:path");
+
+// Importa el módulo 'express' para crear el servidor web
 const express = require("express");
 
+// Crea una instancia de una aplicación de Express
 const app = express();
 
+// Cargamos variables de entorno desde fichero .env
 process.loadEnvFile();
+
+// Define el puerto: la variable de entorno PORT, y si no funciona, usa 8888
 const PORT = process.env.PORT || 8888;
 
+// Importamos datos desde el archivo ventas.json.
+// Lo convierte automáticamente en un objeto JavaScript
 const jsonData = require("./ventas.json");
 // console.log(jsonData);
 
+// Ruta principal: responde con un mensaje simple cuando se accede a '/'
 app.get("/", (req, res) => res.send("Hello World!"));
 
 // /api
